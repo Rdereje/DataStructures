@@ -6,13 +6,15 @@ public class Bag<T>
 	protected int count = 0;
 	protected Object [] items;
 	
+	//bag constructor
 	public Bag(int size)
 	{
 		this.size = size;
 		items = new Object[size];
 	}
 	
-	public boolean empty()
+	//check if bag is empty
+	public boolean isEmpty()
 	{
 		if(count == 0)
 			return true;
@@ -20,7 +22,8 @@ public class Bag<T>
 			return false;
 	}
 	
-	public boolean full()
+	//check if bag is full
+	public boolean isFull()
 	{
 		if(count == size)
 			return true;
@@ -28,6 +31,7 @@ public class Bag<T>
 			return false;
 	}
 	
+	//get current number of items in bag
 	public int count()
 	{
 		System.out.println("Current number of items in bag "+count);
@@ -45,6 +49,7 @@ public class Bag<T>
 		return true;
 	}
 	
+	//remove any object
 	public boolean remove()
 	{
 		if(count == 0)
@@ -54,6 +59,7 @@ public class Bag<T>
 		return true;
 	}
 	
+	//remove a specific object
 	public boolean remove(Object a)
 	{
 		int i = 0;
@@ -76,12 +82,14 @@ public class Bag<T>
 		return false;
 	}
 	
+	//clears the bag
 	void removeAll()
 	{
 		count = 0;
 		items = new Object[size];
 	}
 	
+	//shows whats in the bag
 	void showAll()
 	{
 		for(int i = 0; i < count; i++)
@@ -91,6 +99,7 @@ public class Bag<T>
 		System.out.println();
 	}
 	
+	//check if bag contains object
 	boolean contains(Object a)
 	{
 		for(int i = 0; i < count; i++)
@@ -101,6 +110,7 @@ public class Bag<T>
 		return false;
 	}
 	
+	//returns count of how often an object occurs in bag
 	int itemCount(Object a)
 	{
 		int occurs = 0;
@@ -116,8 +126,8 @@ public class Bag<T>
 	public static void main(String[] args)
 	{
 		Bag bag = new Bag(10);
-		System.out.println("Is bag empty "+bag.empty());
-		System.out.println("Is bag full "+bag.full());
+		System.out.println("Is bag empty "+bag.isEmpty());
+		System.out.println("Is bag full "+bag.isFull());
 		bag.count();
 		System.out.println("Add "+bag.add(0));
 		for(int i = 1; i < 10; i++)
@@ -127,8 +137,8 @@ public class Bag<T>
 		
 		bag.showAll();
 		bag.count();
-		System.out.println("Is bag empty "+bag.empty());
-		System.out.println("Is bag full "+bag.full());
+		System.out.println("Is bag empty "+bag.isEmpty());
+		System.out.println("Is bag full "+bag.isFull());
 		bag.remove();
 		bag.showAll();
 		bag.count();
