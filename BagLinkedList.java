@@ -3,7 +3,7 @@ import java.util.*;
 class BagLinkedList<T>
 {
 	Node head;
-	int count;
+	private int count;
 	BagLinkedList()
 	{
 		count = 0;
@@ -46,6 +46,7 @@ class BagLinkedList<T>
 		System.out.println();
 	}
 	
+	//remove item from beginning from bag
 	public boolean remove()
 	{
 		if(head.next == null)
@@ -56,6 +57,7 @@ class BagLinkedList<T>
 		
 	}
 	
+	//remove specific item from bag
 	public boolean remove(T item)
 	{
 		Node curr = head;
@@ -83,6 +85,39 @@ class BagLinkedList<T>
 		return false;
 	}
 	
+	//empty bag
+	public void clear()
+	{
+		head = new Node();
+		count = 0;
+	}
+	
+
+	
+	boolean contains(T item)
+	{
+		Node curr = head;
+		while(curr.next != null)
+		{
+			if(curr.data.equals(item))
+				return true;
+			curr = curr.next;
+		}
+		return false;
+	}
+	
+	int itemCount(T item)
+	{
+		int occurs = 0;
+		Node curr = head;
+		
+		while(curr.next != null)
+		{
+			if(curr.data.equals(item))
+				occurs++;
+		}
+		return occurs;
+	}
 	public static void main(String args[])
 	{
 		BagLinkedList bag = new BagLinkedList();
@@ -92,7 +127,7 @@ class BagLinkedList<T>
 		bag.showAll();
 		bag.add(10);
 		bag.showAll();
-		bag.remove(1);
+		bag.clear();
 		bag.showAll();
 	}
 }

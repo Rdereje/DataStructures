@@ -3,8 +3,8 @@ import java.util.*;
 //Bag with Array
 public class Bag<T>
 {
-	protected int size;
-	protected int count = 0;
+	private int size;
+	private int count = 0;
 	protected Object [] items;
 	
 	//bag constructor
