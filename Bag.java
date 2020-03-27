@@ -1,5 +1,6 @@
 import java.util.*;
 
+//Bag with Array
 public class Bag<T>
 {
 	protected int size;
